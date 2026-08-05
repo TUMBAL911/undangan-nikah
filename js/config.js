@@ -21,8 +21,8 @@ const CONFIG = {
   bride: {
     fullName: "Aliyah Nurhasanah",
     nickname: "Liyot",
-    father: "", // fill in bride's father's name
-    mother: "", // fill in bride's mother's name
+    father: "Rohmat", // fill in bride's father's name
+    mother: "Juju", // fill in bride's mother's name
     childOrder: "Putri pertama dari",
     photo: "assets/bride.jpg"
   },
@@ -45,9 +45,9 @@ const CONFIG = {
 
   // ---- Gift / Kado -------------------------------------------
   gift: {
-    bankName: "Bank (isi nama bank)",
+    bankName: "BRI",
     accountNumber: "1730010863422",
-    accountHolder: "Isi nama pemegang rekening",
+    accountHolder: "Aliyah Nurhasanh",
     deliveryAddress: "RT.01/RW.04, Jatibaru, Kec. Ciasem, Kabupaten Subang, Jawa Barat 41256"
   },
 
@@ -60,7 +60,7 @@ const CONFIG = {
   // ---- Google Apps Script Web App URL --------------------------
   // 1. Follow apps-script/README (or the main README) to deploy Code.gs
   // 2. Paste the /exec URL you get here, exactly as given.
-  scriptURL: https://script.google.com/macros/s/AKfycbyWNg7QOpyO1TtjXVtvborFAz_hk-jsID4XNe0PQQcjelv5Pp1B1SojNMUqmyUFCmf5KQ/exec,
+  scriptURL: "https://script.google.com/macros/s/AKfycbyWNg7QOpyO1TtjXVtvborFAz_hk-jsID4XNe0PQQcjelv5Pp1B1SojNMUqmyUFCmf5KQ/exec",
 
   // How often (ms) to refresh the wishes wall from the Sheet.
   wishesPollIntervalMs: 15000,
