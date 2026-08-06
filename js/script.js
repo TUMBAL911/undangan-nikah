@@ -137,17 +137,29 @@
   }
 
 /* ---------------------------------------------------------
-     5. RSVP submission -> Google Apps Script
+     5. RSVP submission -> Google Apps Script (Anti-Spam 1 Jam)
   --------------------------------------------------------- */
   function wireRsvpForm() {
     const form = document.getElementById("rsvpForm");
     const btn = document.getElementById("rsvpSubmit");
     const msg = document.getElementById("rsvpMsg");
+    const COOLDOWN_MS = 60 * 60 * 1000; // 1 Jam (3600000 milidetik)
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       msg.textContent = "";
       msg.className = "form-msg";
+
+      // --- PROTEKSI ANTI SPAM (Cek Waktu Terakhir Kirim) ---
+      const lastSubmitTime = localStorage.getItem("rsvp_last_submit");
+      const now = Date.now();
+
+      if (lastSubmitTime && (now - lastSubmitTime < COOLDOWN_MS)) {
+        const remainingMinutes = Math.ceil((COOLDOWN_MS - (now - lastSubmitTime)) / (60 * 1000));
+        msg.textContent = `Anda baru saja mengirimkan ucapan. Silakan tunggu ${remainingMinutes} menit lagi untuk mengirim ulang. 🙏`;
+        msg.className = "form-msg err";
+        return;
+      }
 
       const name = document.getElementById("rsvpName").value.trim();
       const attendance = form.querySelector('input[name="attendance"]:checked') ? form.querySelector('input[name="attendance"]:checked').value : 'Attending';
@@ -185,6 +197,9 @@
             message: message
           })
         });
+
+        // --- SIMPAN JAM KIRIM TERAKHIR ---
+        localStorage.setItem("rsvp_last_submit", Date.now());
 
         msg.textContent = "Terima kasih! RSVP Anda telah kami terima.";
         msg.className = "form-msg ok";
