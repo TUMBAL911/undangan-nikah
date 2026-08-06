@@ -143,7 +143,7 @@
     const form = document.getElementById("rsvpForm");
     const btn = document.getElementById("rsvpSubmit");
     const msg = document.getElementById("rsvpMsg");
-    const COOLDOWN_MS = 60 * 60 * 1000; // 1 Jam (3600000 milidetik)
+    const COOLDOWN_MS = 2 * 60 * 60 * 1000; // 2 Jam
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
