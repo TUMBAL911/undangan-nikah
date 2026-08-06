@@ -10,21 +10,15 @@
 const CONFIG = {
 
   // ---- Couple -------------------------------------------------
-  groom: {
-    fullName: "Adjie Prayogo Kurniawan S.Kom",
-    nickname: "Gonjol",
-    father: "Heryanto (Bogeng)",
-    mother: "Hayati (Mamah Adjie)",
-    childOrder: "Putra pertama dari", // "Son of" prefix, edit as needed
-    photo: "assets/groom.jpg"
+groom: {
+    name: "Adjie Prayogo Kurniawan",
+    nickname: "(Gonjol)",
+    parents: "Putra dari Bapak Heryanto (Bogeng) & Ibu Hayati (Mamah Adjie)",
   },
   bride: {
-    fullName: "Aliyah Nurhasanah",
-    nickname: "Liyot",
-    father: "Rohmat", // fill in bride's father's name
-    mother: "Juju", // fill in bride's mother's name
-    childOrder: "Putri pertama dari",
-    photo: "assets/bride.jpg"
+    name: "Aliyah Nurhasanah",
+    nickname: "(Liyot)",
+    parents: "Putri dari Bapak [Nama Ayah] & Ibu [Nama Ibu]",
   },
   couplePhoto: "assets/couple.jpg",
 
