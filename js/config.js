@@ -62,7 +62,7 @@ groom: {
   // ---- Google Apps Script Web App URL --------------------------
   // 1. Follow apps-script/README (or the main README) to deploy Code.gs
   // 2. Paste the /exec URL you get here, exactly as given.
-rsvpUrl: "https://script.google.com/macros/s/AKfycbz1fEu2gM-JcNNG7VblmwIJJMZV0032FhGjwTKx4afjvlTGFq2iWQToM9ZNSEPZl8zl/exec",
+scriptURL: "https://script.google.com/macros/s/AKfycbycUya91KGJunSzpGxy-3L7sAfUK1A_d4ccIEqTsqeeD30HiPjaGT24u2KsUamN3Ah4/exec",
 
   // How often (ms) to refresh the wishes wall from the Sheet.
   wishesPollIntervalMs: 15000,
