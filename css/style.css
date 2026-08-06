@@ -580,3 +580,125 @@ section{
   .container{ padding: 0 var(--space-4); }
   .radio-row{ max-width: 380px; margin: 0 auto; }
 }
+/* =========================================================
+   ROYAL EXTRA STYLING (ADDITIONAL ORNAMENTS & TIMELINE)
+========================================================== */
+.royal-side-border {
+  position: fixed;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  pointer-events: none;
+  z-index: 99;
+}
+
+.royal-corner {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  color: #c5a059;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 100;
+}
+.royal-corner.top-left { top: 12px; left: 12px; }
+.royal-corner.top-right { top: 12px; right: 12px; }
+
+.story-photo-frame {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.royal-timeline {
+  text-align: left;
+  padding: 1.5rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+  border-left: 2px solid rgba(197, 160, 89, 0.4);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-year {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: #c5a059;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.timeline-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+  color: #f1e4c3;
+}
+
+.timeline-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #d1c7b7;
+  margin: 0;
+}
+/* =========================================================
+   ROYAL RUNDOWN / SCHEDULE STYLING
+========================================================== */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.schedule-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba(197, 160, 89, 0.3);
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.schedule-time {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: #c5a059;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.2rem;
+}
+
+.schedule-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #f1e4c3;
+  margin: 0 0 0.2rem 0;
+}
+
+.schedule-desc {
+  font-size: 0.95rem;
+  color: #d1c7b7;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (min-width: 600px) {
+  .schedule-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .schedule-time {
+    min-width: 150px;
+  }
+}
