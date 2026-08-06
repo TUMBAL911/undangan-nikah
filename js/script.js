@@ -17,8 +17,7 @@
   function populateContent() {
     const { groom, bride, venue, gift, weddingDateDisplay, weddingTimeDisplay } = CONFIG;
 
-    fillText("coverGroomNick", groom.nickname);
-    fillText("coverBrideNick", bride.nickname);
+
     fillText("coverDate", weddingDateDisplay);
 
     document.getElementById("groomPhoto").src = groom.photo;
