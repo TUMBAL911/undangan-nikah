@@ -18,7 +18,7 @@ groom: {
   bride: {
     name: "Aliyah Nurhasanah",
     nickname: "(Liyot)",
-    parents: "Putri dari Bapak [Nama Ayah] & Ibu [Nama Ibu]",
+    parents: "Putri dari Bapak Rohmat & Ibu Juju",
   },
   couplePhoto: "assets/couple.jpg",
 
