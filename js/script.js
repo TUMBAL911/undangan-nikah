@@ -136,7 +136,7 @@
     });
   }
 
-  /* ---------------------------------------------------------
+/* ---------------------------------------------------------
      5. RSVP submission -> Google Apps Script
   --------------------------------------------------------- */
   function wireRsvpForm() {
@@ -150,7 +150,7 @@
       msg.className = "form-msg";
 
       const name = document.getElementById("rsvpName").value.trim();
-      const attendance = form.querySelector('input[name="attendance"]:checked').value;
+      const attendance = form.querySelector('input[name="attendance"]:checked') ? form.querySelector('input[name="attendance"]:checked').value : 'Attending';
       const guests = document.getElementById("rsvpGuests").value || "1";
       const message = document.getElementById("rsvpMessage").value.trim();
 
@@ -160,9 +160,10 @@
         return;
       }
 
-      if (!CONFIG.scriptURL || CONFIG.scriptURL.startsWith("PASTE_")) {
-        msg.textContent =
-          "RSVP belum terhubung ke Google Sheets. Lihat README untuk menyelesaikan setup.";
+      const scriptURL = CONFIG.scriptURL || CONFIG.rsvpUrl;
+
+      if (!scriptURL || scriptURL.startsWith("PASTE_")) {
+        msg.textContent = "RSVP belum terhubung ke Google Sheets.";
         msg.className = "form-msg err";
         return;
       }
@@ -172,29 +173,28 @@
       btn.textContent = "Mengirim…";
 
       try {
-        // text/plain avoids a CORS preflight against Apps Script's /exec endpoint.
-        const res = await fetch(CONFIG.scriptURL, {
+        await fetch(scriptURL, {
           method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             action: "rsvp",
-            name,
-            attendance,
-            guests,
-            message,
-          }),
+            name: name,
+            attendance: attendance,
+            guests: guests,
+            message: message
+          })
         });
-        const data = await res.json();
-        if (data && data.result === "success") {
-          msg.textContent = "Terima kasih! RSVP Anda telah kami terima.";
-          msg.className = "form-msg ok";
-          form.reset();
-          document.querySelectorAll(".radio-opt").forEach((l) => l.classList.remove("active"));
-          document.querySelector('.radio-opt[data-val="Attending"]').classList.add("active");
-          loadWishes(); // refresh wall immediately with the new wish
-        } else {
-          throw new Error((data && data.message) || "Unknown error");
-        }
+
+        msg.textContent = "Terima kasih! RSVP Anda telah kami terima.";
+        msg.className = "form-msg ok";
+        form.reset();
+        
+        document.querySelectorAll(".radio-opt").forEach((l) => l.classList.remove("active"));
+        const activeOpt = document.querySelector('.radio-opt[data-val="Attending"]');
+        if (activeOpt) activeOpt.classList.add("active");
+
+        if (typeof loadWishes === 'function') loadWishes();
       } catch (err) {
         msg.textContent = "Terjadi kesalahan saat mengirim. Silakan coba lagi.";
         msg.className = "form-msg err";
