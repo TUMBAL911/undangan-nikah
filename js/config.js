@@ -32,8 +32,8 @@ groom: {
 
   // ---- Date & Time ---------------------------------------------
   // ISO 8601 with timezone offset. Asia/Jakarta = +07:00 (WIB).
-  weddingDateTimeISO: "2027-05-01T09:00:00",
-  weddingDateDisplay: "1 Mei 2027",
+  weddingDateTimeISO: "2027-04-04T09:00:00",
+  weddingDateDisplay: "4 April 2027",
   weddingTimeDisplay: "09:00 WIB – selesai",
 
   // ---- Venue -----------------------------------------------------
